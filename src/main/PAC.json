@@ -1,0 +1,148 @@
+{
+  "CICDConfig": {
+    "CIServerDefaults": {
+      "WorkspacePath": "D:/Jenkins/Workspace/",
+      "LogstashFolder": "Logstash_Test"
+    },
+    "Project": {
+      "ProjectType": "DotNet",
+      "ProjectDescription": "API",
+      "ProjectName": "Authorizations",
+      "ProjectVersion": "3",
+      "ProjectGUID": "0459e542-c0dd-4d99-979b-ef7e451615b0"
+    },
+    "CICDEnvironment": {
+      "BuildServer": "",
+      "BuildTool": ""
+    },
+    "Build": {
+      "BuildItems": {
+        "BuildItem": {
+          "Repo": {
+            "Type": {},
+            "ProjPath": "SVM.Shared.API.Authorizations/SVM.Shared.API.Authorizations.csproj",
+            "SolutionPath": "SVM.Shared.API.Authorizations.sln",
+            "MSBuild_Proj_Path": "SS-API-Authorizations",
+            "Url": "https://tfs-svm.visualstudio.com/DevOps/_git/PAC_Development_Project"
+          },
+          "Version": "",
+          "CommandLineArgs": {
+            "Configuration": {
+              "Build": "Debug",
+              "Version": "14.0"
+            }
+          },
+          "OnFailure": {}
+        }
+      },
+      "DeleteBranch": {}
+    },
+    "Package": {
+      "PackageType": "ZIP",
+      "WIX": {
+        "InstallRootDrive": "D",
+        "RootFolderName": "IIS"
+      },
+      "Deploy": {}
+    },
+    "Nexus": {
+      "GroupID": "api.pipeline.dev",
+      "url": "http://abscnxs01d.svmintranet.com:8081/nexus/content/repositories/",
+      "version": "nexus2",
+      "protocol": "http",
+      "repository": "pac_development"
+    },
+    "TestSets": {
+      "TestSet": {
+        "TestType": {},
+        "TDM": {},
+        "Execute": {},
+        "TestPattern": "SVM.Shared.API.*.tests.dll",
+        "CoverageAnalysis": {
+          "Filters": {
+            "Arguments": "/nologo /noshadow",
+            "OpenCoverFilter": "-filter:+[SVM.Shared.API*]* -[SVM.Shared.API.*.Tests]*",
+            "FxCopFilter": "SVM.Shared.API.*.dll"
+          }
+        }
+      }
+    },
+    "Environments": {
+      "Environment": {
+        "Dev": {
+          "Servers": {
+            "Server": {
+              "ServerTag": {},
+              "CPUCount": {},
+              "MemoryInGB": {},
+              "VMTemplate": {},
+              "Existing": {
+                "IPAddress": "10.207.186.87",
+                "FQDN": "mem0bscweb01d.bizt.est.svmt.com"
+              },
+              "AutoCreate": {},
+              "AutoDestroy": {},
+              "NetworkZone": {},
+              "PuppetModule": {}
+            }
+          },
+          "Network": {
+            "FirewallRules": {
+              "FirewallRule": {}
+            }
+          }
+        },
+        "Test": {
+          "Servers": {
+            "Server": {
+              "ServerTag": {},
+              "CPUCount": {},
+              "MemoryInGB": {},
+              "VMTemplate": {},
+              "Existing": [
+                {
+                "IPAddress": "10.250.35.44",
+                "FQDN": "abscssapi01t.bizt.est.svmt.com"
+                },
+                {
+                  "IPAddress": "10.250.35.45",
+                  "FQDN": "abscssapi02t.bizt.est.svmt.com"
+                }
+              ],
+              "AutoCreate": {},
+              "AutoDestroy": {},
+              "NetworkZone": {},
+              "PuppetModule": {}
+            }
+          },
+          "Network": {
+            "FirewallRules": {
+              "FirewallRule": {}
+            }
+          }
+        },
+        "Acceptance": {
+		    "Repo": {
+            "AcceptanceTestSolutionPath": "SpecFlow.V3.Authorizations.Tests/SpecFlow.V3.Authorizations.Tests.sln"
+          }},
+        "ManualTest": "",
+        "Capacity": "",
+        "Training": "",
+        "Production": ""
+      }
+    },
+    "Notifications": {
+      "Notification": {
+        "Name": "",
+        "Email": "",
+        "Triggers": {
+          "Trigger": {
+            "TriggerType": {},
+            "OnSuccess": {},
+            "OnFailure": {}
+          }
+        }
+      }
+    }
+  }
+}
