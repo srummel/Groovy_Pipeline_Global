@@ -1,11 +1,10 @@
 package com.servicemaster.devops
 
-import groovy.json.JsonSlurper
 
 /**
  * Pipeline Groovy class.
  */
-class Pipeline {
+class Pipeline implements Serializable {
 
   def env = System.getenv()
 
@@ -17,8 +16,6 @@ class Pipeline {
       println it
     }
   }
-
-
 
   def build() {
     def batCommand = "bat ${env.SLAVE_NUGET} restore ${SolutionPath}"
