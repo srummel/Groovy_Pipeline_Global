@@ -22,9 +22,9 @@ class Pipeline implements Serializable {
     }
   }
 
-  def output(textToOutput){
+  def output(){
     script.echo 'THIS IS THE START OF SOMETHING NEW'
-    script.echo ${textToOutput}
+//    script.echo ${textToOutput}
     script.echo "THIS IS ME HOPING THIS SHIT WORKS ......"
   }
 
